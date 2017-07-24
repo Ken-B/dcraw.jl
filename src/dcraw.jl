@@ -1,17 +1,19 @@
 module dcraw
 """
-The website notes: "Unless otherwise noted in the source code, these programs 
+Simply provide dcraw 9.26 executable file to julia as `dcraw.DCRAW_EXE` for windows, osx and linux.
+
+The [dcraw website](http://www.cybercom.net/~dcoffin/dcraw/) notes: "Unless otherwise noted in the source code, these programs 
 are free for all uses, although I would like to receive credit for them."
 The program dcraw is written by Dave Coffin.
 """
 
 const RAW_EXT = String[".3fr", ".ari", ".arw", ".bay", ".crw", ".cr2",
-".cap", ".dcs", ".dcr", ".dng",
-".drf", ".eip", ".erf", ".fff", ".iiq", ".k25", ".kdc", ".mdc", ".mef", ".mos", ".mrw",
-".nef", ".nrw", ".obm", ".orf", ".pef", ".ptx", ".pxn", ".r3d", ".raf", ".raw", ".rwl",
-".rw2", ".rwz", ".sr2", ".srf", ".srw", ".tif", ".x3f"]
+    ".cap", ".dcs", ".dcr", ".dng",
+    ".drf", ".eip", ".erf", ".fff", ".iiq", ".k25", ".kdc", ".mdc", ".mef", ".mos", ".mrw",
+    ".nef", ".nrw", ".obm", ".orf", ".pef", ".ptx", ".pxn", ".r3d", ".raf", ".raw", ".rwl",
+    ".rw2", ".rwz", ".sr2", ".srf", ".srw", ".tif", ".x3f"]
 
-const DCRAW_DIR = joinpath(Pkg.dir("dcraw"), "lib")
+const DCRAW_DIR = Pkg.dir("dcraw", "lib")
 @static if is_windows() 
     const DCRAW_EXE = joinpath(DCRAW_DIR, "dcraw-9.26-ms-64-bit.exe")
 end
